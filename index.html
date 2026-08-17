@@ -12,7 +12,6 @@
             --primary: #3b82f6;
             --primary-hover: #2563eb;
             --bg-gradient-start: #090d16;
-            --bg-gradient-end: #0f172a;
             --card-bg: rgba(255, 255, 255, 0.03);
             --card-border: rgba(255, 255, 255, 0.08);
             --text-main: #f8fafc;
@@ -34,12 +33,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 24px;
+            padding: 32px 20px;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Dekorative Hintergrund-Lichter */
         .glow {
             position: absolute;
             width: 400px;
@@ -62,7 +60,7 @@
             border-radius: 24px;
             max-width: 620px;
             width: 100%;
-            padding: 48px 36px;
+            padding: 44px 32px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
             text-align: center;
         }
@@ -92,12 +90,11 @@
         }
 
         h1 {
-            font-size: clamp(28px, 5vw, 36px);
+            font-size: clamp(26px, 5vw, 36px);
             font-weight: 800;
-            line-height: 1.2;
+            line-height: 1.25;
             margin-bottom: 16px;
             letter-spacing: -0.02em;
-            word-break: break-all;
             background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -105,17 +102,16 @@
 
         .description {
             color: var(--text-muted);
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.6;
-            margin-bottom: 32px;
-            font-weight: 400;
+            margin-bottom: 28px;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 12px;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
             text-align: left;
         }
 
@@ -144,14 +140,14 @@
             background: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 24px;
+            padding: 20px;
+            margin-bottom: 20px;
         }
 
         .contact-label {
             font-size: 13px;
             color: var(--text-muted);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .contact-email {
@@ -190,19 +186,30 @@
             transform: translateY(-1px);
         }
 
-        .footer {
+        .footer-nav {
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-nav a {
+            color: var(--text-muted);
             font-size: 13px;
-            color: #64748b;
-            line-height: 1.5;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s;
+        }
+
+        .footer-nav a:hover {
+            color: #ffffff;
         }
 
         @media (max-width: 540px) {
-            .container {
-                padding: 32px 20px;
-            }
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
+            .container { padding: 32px 20px; }
+            .features-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -213,13 +220,13 @@
     <main class="container">
         <div class="badge">
             <span class="badge-dot"></span>
-            Exklusive Domain zu verkaufen
+            Exklusive Webadresse
         </div>
 
-        <h1 id="domain-name">Diese Domain steht zum Verkauf</h1>
+        <h1>Diese Domain steht zum Verkauf</h1>
         
         <p class="description">
-            Sichern Sie sich diese prägnante Webadresse für Ihre Marke oder Ihr nächstes Projekt. Steigern Sie Ihre Auffindbarkeit und Professionalität nachhaltig.
+            Sichern Sie sich diese Webadresse für Ihre Marke oder Ihr nächstes Projekt. Steigern Sie Ihre Reichweite und Professionalität im Web.
         </p>
 
         <div class="features-grid">
@@ -244,24 +251,15 @@
             </a>
         </div>
 
-        <a id="email-btn" href="mailto:info@elektronik-lochner.de?subject=Kaufanfrage%20f%C3%BCr%20Domain" class="btn">
+        <a href="mailto:info@elektronik-lochner.de?subject=Kaufanfrage%20f%C3%BCr%20Domain" class="btn">
             Unverbindliches Angebot senden &rarr;
         </a>
 
-        <div class="footer" style="margin-top: 28px;">
-            Anfragen werden in der Regel innerhalb von 24 Stunden beantwortet.
+        <div class="footer-nav">
+            <a href="https://elektronik-lochner.de/Impressum/" target="_blank" rel="noopener noreferrer">Impressum</a>
+            <a href="https://elektronik-lochner.de/datenschutzerklaerung/" target="_blank" rel="noopener noreferrer">Datenschutz</a>
         </div>
     </main>
 
-    <script>
-        // Automatische Erkennung des Domainnamens
-        const hostname = window.location.hostname;
-        if (hostname && hostname !== "localhost" && hostname !== "127.0.0.1") {
-            document.getElementById('domain-name').textContent = hostname + ' steht zum Verkauf';
-            const subject = encodeURIComponent('Kaufanfrage für ' + hostname);
-            const mailtoUri = 'mailto:info@elektronik-lochner.de?subject=' + subject;
-            document.getElementById('email-btn').setAttribute('href', mailtoUri);
-        }
-    </script>
 </body>
 </html>
